@@ -67,7 +67,31 @@ userController.getuser = async (req, res) =>{
       console.log(error);
       res.status(400).json({ error: error.message }) 
     }
-  }
+}
+
+
+
+
+userController.editprofile = async (req, res) =>{
+
+    try {
+           const encryptedId = req.params.userId
+           const decryptedId = await jwt.verify(encryptedId, process.env.JWT_SECRET)
+           const user = await models.user.findOne({
+            where : {
+             id : decryptedId.userId
+            }
+           })
+           console.log(user)
+  
+        let edit = await user.update(req.body)
+        res.json({edit})
+      
+      
+    } catch (error) {
+      res.status(400).json({ error: error.message }) 
+    }
+}
 
 
 module.exports = userController
