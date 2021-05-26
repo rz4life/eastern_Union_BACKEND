@@ -5,7 +5,6 @@ require('dotenv').config()
 
 
 userController.create = async (req, res) =>{
-
     try {
         const user = await models.user.create ({
             firstname: req.body.firstname,
@@ -69,9 +68,6 @@ userController.getuser = async (req, res) =>{
     }
 }
 
-
-
-
 userController.editprofile = async (req, res) =>{
 
     try {
@@ -93,5 +89,18 @@ userController.editprofile = async (req, res) =>{
     }
 }
 
+userController.getalluser = async (req, res) =>{
+  try {
+    const alluser = await models.user.findOne({
+      where: {
+        email: req.body.email
+      }
+    })
+    res.json({alluser})
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error.message }) 
+  }
+}
 
 module.exports = userController
