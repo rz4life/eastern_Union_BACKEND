@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      sending_userId: {
+      sendingUserId: {
         type: Sequelize.INTEGER
       },
-      receiving_userId: {
+      receivingUserId: {
         type: Sequelize.INTEGER
       },
       amount: {

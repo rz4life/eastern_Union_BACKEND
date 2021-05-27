@@ -25,19 +25,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      userCard_num: {
+      userCardNum: {
         type: Sequelize.STRING
       },
-      userCard_name: {
+      userCardName: {
         type: Sequelize.STRING
       },
-      userCard_exp: {
+      userCardExp: {
         type: Sequelize.STRING
       },
       balance: {
         type: Sequelize.INTEGER
       },
-      prefered_currency: {
+      preferedCurrency: {
         type: Sequelize.STRING
       },
       createdAt: {

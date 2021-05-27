@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.user.belongsToMany(models.currencies,{through:"userCurrencies"})
-      models.user.hasMany(models.transaction)
     }
   };
   user.init({
@@ -20,11 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     lastname: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    userCard_num: DataTypes.STRING,
-    userCard_name: DataTypes.STRING,
-    userCard_exp: DataTypes.STRING,
+    userCardNum: DataTypes.STRING,
+    userCardName: DataTypes.STRING,
+    userCardExp: DataTypes.STRING,
     balance: DataTypes.INTEGER,
-    prefered_currency: DataTypes.STRING
+    preferedCurrency: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'user',

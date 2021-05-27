@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.transaction.belongsTo(models.user, {foreignKey: 'sending_userId', constraints: false})
-      models.transaction.belongsTo(models.user, {as: "friend", foreignKey: 'receiving_userId', constraints:false})
+      models.transaction.belongsTo(models.user, {foreignKey: 'sendingUserId', constraints: false})
+      models.transaction.belongsTo(models.user, {as: "friend", foreignKey: 'receivingUserId', constraints:false})
      }
   };
   transaction.init({
-    sending_userId: DataTypes.INTEGER,
-    receiving_userId: DataTypes.INTEGER,
+    sendingUserId: DataTypes.INTEGER,
+    receivingUserId: DataTypes.INTEGER,
     amount: DataTypes.INTEGER
   }, {
     sequelize,
